@@ -31,7 +31,47 @@ models:
     description: "This model contains all order_items"
     columns:
       - name: order_item_id
-        description: "Primary key, unique identifier for each customer"
+        description: "Primary key, unique identifier for each order_item"
+        tests:
+            - unique
+            - not_null
+  - name: stg_local_bike_bronze__orders
+    description: "This model contains all orders"
+    columns:
+      - name: order_id
+        description: "Primary key, unique identifier for each order"
+        tests:
+            - unique
+            - not_null
+  - name: stg_local_bike_bronze__products
+    description: "This model contains all products"
+    columns:
+      - name: product_id
+        description: "Primary key, unique identifier for each product"
+        tests:
+            - unique
+            - not_null
+  - name: stg_local_bike_bronze__staffs
+    description: "This model contains all staffs"
+    columns:
+      - name: staff_id
+        description: "Primary key, unique identifier for each staff's member"
+        tests:
+            - unique
+            - not_null
+  - name: stg_local_bike_bronze__stocks
+    description: "This model contains all stocks - one raw for a product in a store"
+    columns:
+      - name: stock_id
+        description: "Primary key, unique identifier for each product/store"
+        tests:
+            - unique
+            - not_null
+  - name: stg_local_bike_bronze__stores
+    description: "This model contains one raw per store"
+    columns:
+      - name: store_id
+        description: "Primary key, unique identifier for each store"
         tests:
             - unique
             - not_null
