@@ -42,7 +42,7 @@ models:
               name: order_id_foreign_key_in_stg_local_bike_bronze__orders
               to: ref('stg_local_bike_bronze__orders')
               field: order_id
-      - name: item_id
+      - name: product_id
         description: "Foreign key to products"
         tests:
           - relationships:
