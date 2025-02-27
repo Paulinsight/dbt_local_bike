@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_local_bike_bronze__brands
+    description: "This model contains a list of nine brands"
+    columns:
+      - name: brand_id
+        description: "Primary key, unique identifier for each brand"
+        tests:
+            - unique
+            - not_null
