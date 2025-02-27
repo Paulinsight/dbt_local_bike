@@ -14,7 +14,8 @@ result as (
         cast(item_id as string) as item_id,
         cast(product_id as string) as product_id,
         cast(quantity as numeric) as quantity,
-        cast(list_price as numeric) as list_price,
+        cast(list_price as numeric) as price,
+        cast(quantity * list_price as numeric) as revenue,
         cast(discount as numeric) as discount
 
     from source
