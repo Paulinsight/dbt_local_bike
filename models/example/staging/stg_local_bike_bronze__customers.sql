@@ -16,7 +16,7 @@ result as (
         cast(email as string) as email,
         cast(street as string) as street,
         cast(city as string) as city,
-        cast(state as string) as city,
+        cast(state as string) as state,
         cast(zip_code as int64) as zip_code
 
     from source
