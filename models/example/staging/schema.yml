@@ -35,6 +35,20 @@ models:
         tests:
             - unique
             - not_null
+      - name: order_id
+        description: "Foreign key to orders"
+        tests:
+          - relationships:
+              name: order_id_foreign_key_in_stg_local_bike_bronze__orders
+              to: ref('stg_local_bike_bronze__orders')
+              field: order_id
+      - name: item_id
+        description: "Foreign key to products"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__products
+              to: ref('stg_local_bike_bronze__products')
+              field: product_id
   - name: stg_local_bike_bronze__orders
     description: "This model contains all orders"
     columns:
@@ -43,6 +57,27 @@ models:
         tests:
             - unique
             - not_null
+      - name: customer_id
+        description: "Foreign key to customers"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__customers
+              to: ref('stg_local_bike_bronze__customers')
+              field: customer_id
+      - name: store_id
+        description: "Foreign key to stores"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__stores
+              to: ref('stg_local_bike_bronze__stores')
+              field: store_id
+      - name: staff_id
+        description: "Foreign key to staffs"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__staffs
+              to: ref('stg_local_bike_bronze__staffs')
+              field: staff_id
   - name: stg_local_bike_bronze__products
     description: "This model contains all products"
     columns:
@@ -51,6 +86,20 @@ models:
         tests:
             - unique
             - not_null
+      - name: brand_id
+        description: "Foreign key to brands"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__brands
+              to: ref('stg_local_bike_bronze__brands')
+              field: brand_id
+      - name: category_id
+        description: "Foreign key to categorys"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__categorys
+              to: ref('stg_local_bike_bronze__categorys')
+              field: category_id
   - name: stg_local_bike_bronze__staffs
     description: "This model contains all staffs"
     columns:
@@ -59,6 +108,20 @@ models:
         tests:
             - unique
             - not_null
+      - name: store_id
+        description: "Foreign key to stores"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__stores
+              to: ref('stg_local_bike_bronze__stores')
+              field: store_id
+      - name: manager_id
+        description: "Foreign key to managers (= staff_id)"
+#        tests:
+#          - relationships:
+#              name: item_id_foreign_key_in_stg_local_bike_bronze__staffs
+#              to: ref('stg_local_bike_bronze__staffs')
+#              field: staff_id
   - name: stg_local_bike_bronze__stocks
     description: "This model contains all stocks - one raw for a product in a store"
     columns:
@@ -67,6 +130,20 @@ models:
         tests:
             - unique
             - not_null
+      - name: store_id
+        description: "Foreign key to stores"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__stores
+              to: ref('stg_local_bike_bronze__stores')
+              field: store_id
+      - name: product_id
+        description: "Foreign key to products"
+        tests:
+          - relationships:
+              name: item_id_foreign_key_in_stg_local_bike_bronze__products
+              to: ref('stg_local_bike_bronze__products')
+              field: product_id
   - name: stg_local_bike_bronze__stores
     description: "This model contains one raw per store"
     columns:
