@@ -9,3 +9,29 @@ models:
         tests:
             - unique
             - not_null
+          
+  - name: stg_local_bike_bronze__categories
+    description: "This model contains a list of seven categories for bicycle"
+    columns:
+      - name: category_id
+        description: "Primary key, unique identifier for each category"
+        tests:
+            - unique
+            - not_null
+  - name: stg_local_bike_bronze__customers
+    description: "This model contains all customers"
+    columns:
+      - name: customer_id
+        description: "Primary key, unique identifier for each customer"
+        tests:
+            - unique
+            - not_null
+
+  - name: stg_local_bike_bronze__order_items
+    description: "This model contains all order_items"
+    columns:
+      - name: order_item_id
+        description: "Primary key, unique identifier for each customer"
+        tests:
+            - unique
+            - not_null
