@@ -6,7 +6,7 @@ source as (
 
 ),
 
-brands as (
+result as (
 
     select
         cast(brand_id as string) as brand_id,
@@ -16,4 +16,4 @@ brands as (
 
 )
 
-select * from brands
+select * from result
