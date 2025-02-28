@@ -75,8 +75,23 @@ SELECT
         WHEN EXTRACT(MONTH FROM Date) <= 6 THEN 'S1'
         ELSE 'S2'
     END AS Semestre,
-    CONCAT(EXTRACT(YEAR FROM Date), '-', FORMAT('%02d', EXTRACT(WEEK FROM Date))) AS AnneeSemaine,
-    CAST(CONCAT(EXTRACT(YEAR FROM Date), FORMAT('%02d', EXTRACT(MONTH FROM Date))) as int64) AS annee_Mois_numero,
+    concat(EXTRACT(YEAR FROM Date),
+        (CASE 
+            WHEN EXTRACT(MONTH FROM Date) IN (1,2,3) THEN '-T1'
+            WHEN EXTRACT(MONTH FROM Date) IN (4,5,6) THEN '-T2'
+            WHEN EXTRACT(MONTH FROM Date) IN (7,8,9) THEN '-T3'
+            ELSE '-T4'
+        END)) AS annee_trimestre,
+    cast(concat(EXTRACT(YEAR FROM Date),    
+        (CASE 
+            WHEN EXTRACT(MONTH FROM Date) IN (1,2,3) THEN '1'
+            WHEN EXTRACT(MONTH FROM Date) IN (4,5,6) THEN '2'
+            WHEN EXTRACT(MONTH FROM Date) IN (7,8,9) THEN '3'
+            ELSE '4'
+        END)) as int64) AS annee_trimestre_numero,
+    CAST(CONCAT(EXTRACT(YEAR FROM Date), FORMAT('%02d', EXTRACT(WEEK FROM Date))) as int64) AS annee_semaine_numero,
+    CONCAT(EXTRACT(YEAR FROM Date), '-', FORMAT('%02d', EXTRACT(WEEK FROM Date))) AS annee_semaine,
+    CAST(CONCAT(EXTRACT(YEAR FROM Date), FORMAT('%02d', EXTRACT(MONTH FROM Date))) as int64) AS annee_mois_numero,
     CONCAT(EXTRACT(YEAR FROM Date), '-', FORMAT('%02d', EXTRACT(MONTH FROM Date))) AS annee_mois
 FROM dates
 
