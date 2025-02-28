@@ -31,6 +31,7 @@ result as (
         
     from order_items
     inner join orders on orders.order_id = order_items.order_id
+    where orders.shipped_date is not null
 
 )
 
