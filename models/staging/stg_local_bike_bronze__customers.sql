@@ -10,8 +10,9 @@ result as (
 
     select
         cast(customer_id as string) as customer_id,
-        cast(first_name as string) as first_name,
-        cast(last_name as string) as last_name,
+        cast(concat(first_name, ' ', upper(last_name), ' (', customer_id, ')') as string) as customer,
+        --cast(first_name as string) as first_name,
+        --cast(last_name as string) as last_name,
         cast(phone as string) as phone,
         cast(email as string) as email,
         cast(street as string) as street,
