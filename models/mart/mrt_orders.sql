@@ -24,6 +24,7 @@ result as (
         order_items.quantity,
         order_items.price,
         order_items.revenue,
+        order_items.discount_rate,
         orders.order_date,
         orders.required_date,
         orders.shipped_date
