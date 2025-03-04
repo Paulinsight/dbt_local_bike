@@ -1,0 +1,114 @@
+version: 2
+
+models:
+  - name: mrt_dimdates
+    description: "Table de dimension de dates permettant l'analyse temporelle (une ligne par date)."
+    columns:
+      - name: Date
+        description: "Clé primaire. Date complète pour chaque jour de la plage de dates générée."
+        tests:
+          - unique
+          - not_null
+      
+      - name: Annee
+        description: "Année extraite de la date."
+        tests:
+          - not_null
+      
+      - name: Numero_Mois
+        description: "Numéro du mois (1 à 12)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+              quote: false
+      
+      - name: Numero_Jour
+        description: "Numéro du jour dans le mois."
+        tests:
+          - not_null
+      
+      - name: Mois_Long
+        description: "Nom complet du mois en français."
+        tests:
+          - not_null
+      
+      - name: Mois_court
+        description: "Abréviation du mois en trois lettres (ex: Jan, Fév)."
+        tests:
+          - not_null
+      
+      - name: Jour_Semaine
+        description: "Nom complet du jour de la semaine."
+        tests:
+          - not_null
+      
+      - name: Jour_Semaine_Abrege
+        description: "Abréviation du jour de la semaine en trois lettres."
+        tests:
+          - not_null
+      
+      - name: Numero_Jour_Semaine
+        description: "Numéro du jour dans la semaine (1 = lundi, 7 = dimanche)."
+        tests:
+          - not_null
+      
+      - name: Semaine_Annee
+        description: "Numéro de la semaine dans l'année."
+        tests:
+          - not_null
+      
+      - name: Semaine
+        description: "Nom formaté de la semaine (ex: S01, S02)."
+        tests:
+          - not_null
+      
+      - name: Numero_Jour_Semaine_Mois
+        description: "Numéro du jour dans la semaine pour le mois en cours."
+        tests:
+          - not_null
+      
+      - name: Numero_Jour_Annee
+        description: "Numéro du jour dans l'année (1 à 366)."
+        tests:
+          - not_null
+      
+      - name: Trimestre
+        description: "Nom du trimestre (ex: T1, T2, T3, T4)."
+        tests:
+          - not_null
+      
+      - name: Semestre
+        description: "Nom du semestre (ex: S1, S2)."
+        tests:
+          - not_null
+      
+      - name: annee_trimestre
+        description: "Année et trimestre combinés (ex: 2024-T1)."
+        tests:
+          - not_null
+      
+      - name: annee_trimestre_numero
+        description: "Année et numéro du trimestre en entier."
+        tests:
+          - not_null
+      
+      - name: annee_semaine_numero
+        description: "Année et numéro de la semaine en entier."
+        tests:
+          - not_null
+      
+      - name: annee_semaine
+        description: "Année et numéro de la semaine formaté (ex: 2024-S01)."
+        tests:
+          - not_null
+      
+      - name: annee_mois_numero
+        description: "Année et numéro du mois en entier."
+        tests:
+          - not_null
+      
+      - name: annee_mois
+        description: "Année et mois formaté (ex: 2024-01)."
+        tests:
+          - not_null

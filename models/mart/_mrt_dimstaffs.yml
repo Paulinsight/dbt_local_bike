@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: mrt_dimstaffs
+    description: "Table contenant les informations sur les employés, leur manager, leur magasin..."
+    columns:
+      - name: staff_id
+        description: "Identifiant unique de l'employé."
+        tests:
+          - not_null
+          - unique
+
+      - name: store_id
+        description: "Identifiant du magasin où l'employé travaille."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_local_bike_bronze__stores')
+              field: store_id
+
+      - name: store_name
+        description: "Nom du magasin où l'employé travaille."
+        tests:
+          - not_null
+
+      - name: manager_id
+        description: "Identifiant du manager de l'employé. Peut être NULL si l'employé n'a pas de manager."
+
+      - name: manager
+        description: "Nom du manager de l'employé. Peut être NULL si l'employé n'a pas de manager."
+
+      - name: staff
+        description: "Nom de l'employé."
+        tests:
+          - not_null
+
+      - name: email
+        description: "Adresse email de l'employé."
+
+      - name: phone
+        description: "Numéro de téléphone de l'employé."
+
+      - name: active
+        description: "Statut actif (1) ou inactif (0) de l'employé."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false

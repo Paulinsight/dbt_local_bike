@@ -30,11 +30,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+  # pour que la doc soit visible dans bigquery
+  +persist_docs:
+      relation: true
+      columns: true
+
   dbt_local_bike:
     # Config indicated by + and applies to all files under models/example/
-    intermediate:
+    staging:
       +materialized: view
     intermediate:
       +materialized: view
     mart:
       +materialized: table
+
