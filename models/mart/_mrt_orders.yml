@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: mrt_orders
+    description: "Table contenant les informations sur les commandes et les articles commandés (en-têtes et lignes)."
+    columns:
+      - name: order_id
+        description: "Identifiant unique de la commande."
+        tests:
+          - not_null
+      
+      - name: customer_id
+        description: "Identifiant du client ayant passé la commande."
+        tests:
+          - not_null
+      
+      - name: store_id
+        description: "Identifiant du magasin où la commande a été enregistrée."
+        tests:
+          - not_null
+      
+      - name: staff_id
+        description: "Identifiant de l'employé ayant enregistré la commande."
+        tests:
+          - not_null
+      
+      - name: product_id
+        description: "Identifiant du produit commandé."
+        tests:
+          - not_null
+      
+      - name: order_status
+        description: "Statut de la commande."
+        tests:
+          - not_null
+      
+      - name: quantity
+        description: "Quantité du produit commandé."
+        tests:
+          - not_null
+      
+      - name: price
+        description: "Prix unitaire du produit commandé."
+        tests:
+          - not_null
+      
+      - name: revenue
+        description: "Revenu généré par la commande (prix x quantité *(1-taux de remise))."
+        tests:
+          - not_null
+      
+      - name: discount_rate
+        description: "Taux de remise appliqué sur le produit commandé."
+        tests:
+          - not_null
+      
+      - name: order_date
+        description: "Date de prise de la commande."
+        tests:
+          - not_null
+      
+      - name: required_date
+        description: "Date à laquelle la commande doit être livrée."
+        tests:
+          - not_null
+      
+      - name: shipped_date
+        description: "Date d'expédition de la commande."
+        tests:
+          - not_null

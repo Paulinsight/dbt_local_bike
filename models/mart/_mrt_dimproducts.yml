@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: mrt_dimproducts
+    description: "Table contenant les informations sur les produits, y compris leur marque, catégorie, année modèle et prix."
+    columns:
+      - name: product_id
+        description: "Identifiant unique du produit."
+        tests:
+          - unique
+          - not_null
+      
+      - name: product_name
+        description: "Nom du produit."
+        tests:
+          - not_null
+      
+      - name: brand
+        description: "Nom de la marque du produit."
+      
+      - name: category
+        description: "Catégorie du produit."
+      
+      - name: model_year
+        description: "Année modèle du produit."
+      
+      - name: price
+        description: "Prix du produit en devise locale."
+        tests:
+          - not_null

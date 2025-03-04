@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: mrt_dimcustomers
+    description: "Table contenant les informations sur les clients."
+    columns:
+      - name: customer_id
+        description: "Identifiant unique du client."
+        tests:
+          - unique
+          - not_null
+      - name: customer
+        description: "Nom du client."
+      - name: phone
+        description: "Numéro de téléphone du client."
+      - name: email
+        description: "Adresse email du client."
+      - name: street
+        description: "Adresse postale du client (rue)."
+      - name: city
+        description: "Ville du client."
+      - name: state
+        description: "État ou région du client."
+      - name: zip_code
+        description: "Code postal du client."

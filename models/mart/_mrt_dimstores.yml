@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: mrt_dimstores
+    description: "Table contenant les informations des magasins, incluant leur localisation et leurs coordonnées."
+    columns:
+      - name: store_id
+        description: "Identifiant unique du magasin."
+        tests:
+          - unique
+          - not_null
+
+      - name: store_name
+        description: "Nom du magasin."
+        tests:
+          - not_null
+
+      - name: phone
+        description: "Numéro de téléphone du magasin."
+
+      - name: email
+        description: "Adresse email du magasin."
+
+      - name: street
+        description: "Rue où est situé le magasin."
+
+      - name: city
+        description: "Ville où est situé le magasin."
+
+      - name: state
+        description: "État ou région où est situé le magasin."
+
+      - name: zip_code
+        description: "Code postal du magasin."
